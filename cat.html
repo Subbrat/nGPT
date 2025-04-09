@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>-G-P-T-</title>
+    <link rel="stylesheet" href="nor.css">
+</head>
+<body>
+    <div id="chat-container">
+        <div id="header">cat 🐱 nGPT</div>
+        <div id="chat-window"></div>
+        <div id="input-container">
+            <input type="text" id="message-input" autofocus placeholder="Type a message..." />
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+    <script>
+        function getRandomImage() {
+            const randomIndex = Math.floor(Math.random() * 19994) + 1;
+            const extensions = ['.jpg'];
+            const randomExtension = extensions[Math.floor(Math.random() * extensions.length)];
+            return `./cats/${randomIndex}${randomExtension}`;
+        }
+        // Function to generate random "Meow" repetitions between 1 and 7
+        function generateRandomMeows() {
+            const randomCount = Math.floor(Math.random() * 18) + 1; // Random number between 1 and 7
+            return 'Meow '.repeat(randomCount).trim(); // Repeat "Meow" and trim any extra space
+        }
+        function sendMessage() {
+            const messageInput = document.getElementById('message-input');
+            const messageText = messageInput.value.trim();
+            const chatWindow = document.getElementById('chat-window');
+            if (messageText) {
+                const userMessage = document.createElement('div');
+                userMessage.classList.add('message', 'user');
+                const userText = document.createElement('div');
+                userText.classList.add('text');
+                userText.textContent = messageText;
+                userMessage.appendChild(userText);
+                chatWindow.appendChild(userMessage);
+                messageInput.value = '';
+                // Generate random "Meow" for every response
+                const botResponseText = generateRandomMeows();
+                const botMessage = document.createElement('div');
+                botMessage.classList.add('message', 'bot');
+                const botText = document.createElement('div');
+                botText.classList.add('text');
+                botText.textContent = botResponseText;  // Use the random "Meow" text
+                botMessage.appendChild(botText);
+                const randomImage = getRandomImage();
+                if (randomImage) {
+                    const botImage = document.createElement('img');
+                    botImage.src = randomImage;
+                    botImage.alt = "Response Image";
+                    botMessage.appendChild(botImage);
+                }
+                chatWindow.appendChild(botMessage);
+                setTimeout(() => {
+                    chatWindow.scrollTop = chatWindow.scrollHeight;
+                }, 500);
+            }
+        }
+        window.onload = () => {
+            const chatWindow = document.getElementById('chat-window');
+            const greetingMessage = document.createElement('div');
+            greetingMessage.classList.add('message', 'bot');
+            const greetingText = document.createElement('div');
+            greetingText.classList.add('text');
+            greetingText.textContent = "Hello! How can I meow you today?";
+            greetingMessage.appendChild(greetingText);
+            chatWindow.appendChild(greetingMessage);
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+        };
+        document.getElementById('message-input').addEventListener('keypress', function (event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+dataset
+bird images     https://www.kaggle.com/datasets/veeralakrishna/200-bird-species-with-11788-images
+dogs            https://www.kaggle.com/datasets/jessicali9530/stanford-dogs-dataset
+butterfly       https://www.kaggle.com/datasets/phucthaiv02/butterfly-image-classification
+cat             https://www.kaggle.com/datasets/crawford/cat-dataset
+
+
+font            https://www.dafont.com/vortigra.font
+
+cover images ---
+cat             https://www.pexels.com/photo/white-and-grey-kitten-on-brown-and-black-leopard-print-textile-45201/
+dog             https://www.pexels.com/photo/high-angle-photo-of-a-corgi-looking-upwards-2664417/
+butterfly       https://www.pexels.com/photo/common-rose-butterfly-on-green-leaf-4096537/
+bird            https://www.pexels.com/photo/blue-bird-928340/
+
+
+https://api.countapi.xyz/hit/subnGPT/nCat
